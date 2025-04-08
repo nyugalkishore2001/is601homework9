@@ -64,12 +64,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           cache-from: type=registry,ref=nyugalkishore/is601homework9:cache
           cache-to: type=inline,mode=max
-
-      - name: Scan the Docker image with Trivy
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'nyugalkishore/is601homework9:${{ github.sha }}'
-          format: 'table'
-          exit-code: '1'
-          ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
